@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a sentence to check for a pangram:");
+        String input = scanner.nextLine().toLowerCase();
+        boolean isPangram = true;
+        boolean[] alphabet = new boolean[26];
+
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if (c >= 'a' && c <= 'z') {
+                alphabet[c - 'a'] = true;
+            }
+        }
+
+        for (int i = 0; i < alphabet.length; i++) {
+            if (!alphabet[i]) {
+                isPangram = false;
+                break;
+            }
+        }
+
+     System.out.println(isPangram ? "Yes, It's a Pangram" : "No, It's not a Pangram");
+
+    }
+}
